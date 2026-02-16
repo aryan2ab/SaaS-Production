@@ -132,3 +132,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_BASE_DIRS = BASE_DIR / "staticfiles"
+STATICFILES_VENDORS_DIRS = STATICFILES_BASE_DIRS / "vendors"
+
+
+
+#source for python manage.py collectstatic
+STATICFILES_DIRS = [
+    STATICFILES_BASE_DIRS
+]
+
+#output for python manage.py collectstatic
+#local cdn
+STATIC_ROOT = BASE_DIR / "local-cdn"
+#if not DEBUG:
+    #STATIC_ROOT = BASE_DIR / "prod-cdn"
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
