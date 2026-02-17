@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,6 +148,15 @@ STATICFILES_DIRS = [
 #output for python manage.py collectstatic
 #local cdn
 STATIC_ROOT = BASE_DIR / "local-cdn"
+#STATICFILES_STORAGES =  "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#<DJANGO4.2
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 #if not DEBUG:
     #STATIC_ROOT = BASE_DIR / "prod-cdn"
 
