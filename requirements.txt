@@ -7,3 +7,4 @@ requests
 whitenoise
 django-allauth[socialaccount]
 django-widget-tweaks
+stripe
